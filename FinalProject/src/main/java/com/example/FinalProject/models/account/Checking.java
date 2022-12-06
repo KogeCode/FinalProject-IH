@@ -1,6 +1,7 @@
 package com.example.FinalProject.models.account;
 
 import com.example.FinalProject.enums.Status;
+import com.example.FinalProject.models.users.AccountHolder;
 import jakarta.persistence.*;
 import jdk.jshell.Snippet;
 
@@ -18,22 +19,21 @@ public class Checking extends Account{
     public Checking() {
     }
 
-    public Checking(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate) {
-        super(balance, primaryOwner, secundaryOwner, penalthyFee);
+    public Checking(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, AccountHolder accountHolder, AccountHolder accountHolderSecundary, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate) {
+        super(balance, primaryOwner, secundaryOwner, penalthyFee, accountHolder, accountHolderSecundary);
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status=Status.ACTIVE;
     }
 
-    public Checking(BigDecimal balance, String primaryOwner, Double penalthyFee, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate) {
-        super(balance, primaryOwner, penalthyFee);
+    public Checking(BigDecimal balance, String primaryOwner, Double penalthyFee, AccountHolder accountHolder, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate) {
+        super(balance, primaryOwner, penalthyFee, accountHolder);
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status=Status.ACTIVE;
     }
-
 
     public Double getMonthlyMaintenanceFee() {
         return monthlyMaintenanceFee;

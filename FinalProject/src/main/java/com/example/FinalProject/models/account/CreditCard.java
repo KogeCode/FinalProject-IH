@@ -1,6 +1,7 @@
 package com.example.FinalProject.models.account;
 
 import com.example.FinalProject.enums.Status;
+import com.example.FinalProject.models.users.AccountHolder;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -14,14 +15,14 @@ public class CreditCard extends Account{
     public CreditCard() {
     }
 
-    public CreditCard(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, Double creditCardLimit, Double interestRate) {
-        super(balance, primaryOwner, secundaryOwner, penalthyFee);
+    public CreditCard(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, AccountHolder accountHolder, AccountHolder accountHolderSecundary, Double creditCardLimit, Double interestRate) {
+        super(balance, primaryOwner, secundaryOwner, penalthyFee, accountHolder, accountHolderSecundary);
         this.creditCardLimit = creditCardLimit;
         this.interestRate = interestRate;
     }
 
-    public CreditCard(BigDecimal balance, String primaryOwner, Double penalthyFee, Double creditCardLimit, Double interestRate) {
-        super(balance, primaryOwner, penalthyFee);
+    public CreditCard(BigDecimal balance, String primaryOwner, Double penalthyFee, AccountHolder accountHolder, Double creditCardLimit, Double interestRate) {
+        super(balance, primaryOwner, penalthyFee, accountHolder);
         this.creditCardLimit = creditCardLimit;
         this.interestRate = interestRate;
     }

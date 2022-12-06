@@ -1,6 +1,7 @@
 package com.example.FinalProject.models.account;
 
 import com.example.FinalProject.enums.Status;
+import com.example.FinalProject.models.users.AccountHolder;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -18,18 +19,18 @@ public class StudentChecking extends Account{
     public StudentChecking() {
     }
 
-    public StudentChecking(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, String secretKey, LocalDate creationDate, Status status) {
-        super(balance, primaryOwner, secundaryOwner, penalthyFee);
+    public StudentChecking(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, AccountHolder accountHolder, AccountHolder accountHolderSecundary, String secretKey, LocalDate creationDate) {
+        super(balance, primaryOwner, secundaryOwner, penalthyFee, accountHolder, accountHolderSecundary);
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = status;
+        this.status=Status.ACTIVE;
     }
 
-    public StudentChecking(BigDecimal balance, String primaryOwner, Double penalthyFee, String secretKey, LocalDate creationDate, Status status) {
-        super(balance, primaryOwner, penalthyFee);
+    public StudentChecking(BigDecimal balance, String primaryOwner, Double penalthyFee, AccountHolder accountHolder, String secretKey, LocalDate creationDate) {
+        super(balance, primaryOwner, penalthyFee, accountHolder);
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = status;
+        this.status=Status.ACTIVE;
     }
 
     public String getSecretKey() {

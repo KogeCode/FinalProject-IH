@@ -35,10 +35,9 @@ public abstract class Account {
         this.accountHolderSecundary = accountHolderSecundary;
     }
 
-    public Account(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, AccountHolder accountHolder) {
+    public Account(BigDecimal balance, String primaryOwner, Double penalthyFee, AccountHolder accountHolder) {
         this.balance = balance;
         this.primaryOwner = primaryOwner;
-        this.secundaryOwner = secundaryOwner;
         this.penalthyFee = penalthyFee;
         this.accountHolder = accountHolder;
     }
