@@ -15,7 +15,7 @@ public abstract class User {
     @Column(name = "user_id", nullable = false)
     private Long userId;
     private String name;
-    @JsonIgnore
+
     private String password;
 
     @JsonIgnore
@@ -28,6 +28,22 @@ public abstract class User {
     public User(String name, String password) {
         this.name = name;
         this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public Long getUserId() {
