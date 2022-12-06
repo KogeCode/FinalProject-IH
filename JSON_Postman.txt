@@ -1,0 +1,51 @@
+-----------------------------------------------------------------------------------
+>>>>>>>>>>>>>>>>>>>>>>>>>>> localhost:8080/account-holder/add-account-holder
+}
+    "name":"Cristian",
+    "password":"1234",
+    "dateOfBirth": "1994-12-28",
+    "primaryAddress":{
+        "street":"c/Jaume Coll",
+        "postalCode":"8100",
+        "city": "Mollet",
+        "country": "España"
+    }
+}
+-----------------------------------------------------------------------------------
+>>>>>>>>>>>>>>>>>>>>>>>>>>> localhost:8080/account-admin/add-admin
+{
+    "name":"Cristian",
+    "password":"1234",
+    "nameAdmin": "Koge"
+}
+-----------------------------------------------------------------------------------
+>>>>>>>>>>>>>>>>>>>>>>>>>>> localhost:8080/thirdparty-account/add-thirdparty-account
+{
+    "name":"BBVA",
+    "password":"1234",
+    "hashedKey": "hhkdkeweewjf-2233"
+}
+-----------------------------------------------------------------------------------
+>>>>>>>>>>>>>>>>>>>>>>>>>> localhost:8080/creditcard-accounts/add
+{
+    "balance": 1000000,
+    "primaryOwner": "Cristian",
+    "penalthyFee": 4.00,
+    "accountHolder": {
+        "userId":1,
+        "name":"Cristian",
+        "password":"1234",
+        "dateOfBirth": "1994-12-28",
+        "primaryAddress":{
+        "street":"c/Jaume Coll",
+        "postalCode":"8100",
+        "city": "Mollet",
+        "country": "España"
+    },
+    "creditCardLimit": 100000.000,
+    "interestRate":2.00
+    }
+}
+-----------------------------------------------------------------------------------
+
+
