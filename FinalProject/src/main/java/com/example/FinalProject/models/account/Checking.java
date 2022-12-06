@@ -4,14 +4,12 @@ import com.example.FinalProject.enums.Status;
 import jakarta.persistence.*;
 import jdk.jshell.Snippet;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
 public class Checking extends Account{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "checking_account_id", nullable = false)
-    private Long checkingId;
+
     private Double monthlyMaintenanceFee;
     private String secretKey;
     private LocalDate creationDate;
@@ -20,29 +18,22 @@ public class Checking extends Account{
     public Checking() {
     }
 
-    public Checking(Double balance, String primaryOwner, String secundaryOwner, Double penalthyFee, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate, Status status) {
+    public Checking(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate) {
         super(balance, primaryOwner, secundaryOwner, penalthyFee);
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = status;
+        this.status = Status.ACTIVE;
     }
 
-    public Checking(Double balance, String primaryOwner, Double penalthyFee, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate, Status status) {
+    public Checking(BigDecimal balance, String primaryOwner, Double penalthyFee, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate) {
         super(balance, primaryOwner, penalthyFee);
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = status;
+        this.status = Status.ACTIVE;
     }
 
-    public Long getCheckingId() {
-        return checkingId;
-    }
-
-    public void setCheckingId(Long checkingId) {
-        this.checkingId = checkingId;
-    }
 
     public Double getMonthlyMaintenanceFee() {
         return monthlyMaintenanceFee;

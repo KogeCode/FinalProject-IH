@@ -3,28 +3,18 @@ package com.example.FinalProject.models.users;
 import jakarta.persistence.*;
 
 @Entity
-public class ThirdParty extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "thirdparty_id" , nullable = false)
-    private Long thirdPartyId;
+public class ThirdParty extends User {
+
     private String HashedKey;
 
     public ThirdParty() {
     }
 
-    public ThirdParty(String name, String hashedKey) {
-        super(name);
+    public ThirdParty(String name, String password, String hashedKey) {
+        super(name, password);
         HashedKey = hashedKey;
     }
 
-    public Long getThirdPartyId() {
-        return thirdPartyId;
-    }
-
-    public void setThirdPartyId(Long thirdPartyId) {
-        this.thirdPartyId = thirdPartyId;
-    }
 
     public String getHashedKey() {
         return HashedKey;

@@ -1,0 +1,41 @@
+----------------------------------------------------------------------------------------
+La relaciones manytoOne etc entre clases, no las tengo claras.
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+@Enumerated (EnumType.STRING)
+@Column (columnDefinition = "ENUM('FROZEN','')")
+
+Es necesario hacer el Enum.Type??
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+HERENCIAS DE CLASES CON SPRINGBOOT
+
+El id que se pasa es directamente desde la clase abstracta (Account o User) o hay que pasar otra propiedad 
+en las clases hijas que sea la ID?
+
+--> Hay que pasar la foreign key (id de User y Account) a las subclases a parte de la propia ID de la subclase
+
+
+**Cómo hacerlo**
+A la clase padre hay que añadir...
+
+@Entity
+-- Si el nombre de la clase nos da error podemos usar @Table (name = "<nombre que queramos>")
+--@Inheritance(strategy = InheritanceType.JOINED)
+<public abstract class "Nombre de la clase">{
+}
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+Como relacionar los Users con las Account?
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+-->Clase Adress pasarla a Embeded
+HECHO
+----------------------------------------------------------------------------------------
+Preguntar el tema de los atributos optionals (en las cuentas, segundo propietario)
+		///PENDIENTE///
+----------------------------------------------------------------------------------------

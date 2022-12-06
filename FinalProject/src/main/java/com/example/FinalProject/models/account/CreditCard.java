@@ -3,25 +3,24 @@ package com.example.FinalProject.models.account;
 import com.example.FinalProject.enums.Status;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 public class CreditCard extends Account{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "creditcard_id", nullable = false)
-    private Long creditCardId;
+
    private Double creditCardLimit;
    private Double interestRate;
 
     public CreditCard() {
     }
 
-    public CreditCard(Double balance, String primaryOwner, String secundaryOwner, Double penalthyFee, Double creditCardLimit, Double interestRate) {
+    public CreditCard(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, Double creditCardLimit, Double interestRate) {
         super(balance, primaryOwner, secundaryOwner, penalthyFee);
         this.creditCardLimit = creditCardLimit;
         this.interestRate = interestRate;
     }
 
-    public CreditCard(Double balance, String primaryOwner, Double penalthyFee, Double creditCardLimit, Double interestRate) {
+    public CreditCard(BigDecimal balance, String primaryOwner, Double penalthyFee, Double creditCardLimit, Double interestRate) {
         super(balance, primaryOwner, penalthyFee);
         this.creditCardLimit = creditCardLimit;
         this.interestRate = interestRate;

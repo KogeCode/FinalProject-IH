@@ -1,0 +1,74 @@
+
+>>>>06/12/2022
+
+----------------------------------------------------------------------------------------
+La relaciones manytoOne etc entre clases, no las tengo claras.
+
+Un usuario tiene varias cuentas o como va?
+Tengo que hacer la relacion con la clase padre o con las subclases?
+Hay que hacerlo bidireccional?
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+@Enumerated (EnumType.STRING)
+@Column (columnDefinition = "ENUM('FROZEN','ACTIVE')")
+
+Es necesario hacer el Enum.Type??
+
+		///HECHO///
+----------------------------------------------------------------------------------------
+HERENCIAS DE CLASES CON SPRINGBOOT
+
+El id que se pasa es directamente desde la clase abstracta (Account o User) o hay que pasar 
+otra propiedad en las clases hijas que sea la ID?
+
+--> Hay que pasar la foreign key (id de User y Account) a las subclases a parte de la propia ID 
+de la subclase
+
+
+**Cómo hacerlo**
+A la clase padre hay que añadir...
+
+@Entity
+-- Si el nombre de la clase nos da error podemos usar @Table (name = "<nombre que queramos>")
+--@Inheritance(strategy = InheritanceType.JOINED)
+<public abstract class "Nombre de la clase">{
+}
+
+		///HECHO///
+----------------------------------------------------------------------------------------
+Como relacionar los Users con las Account?
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+-->Clase Adress pasarla a Embeded
+HECHO
+		///HECHO///
+----------------------------------------------------------------------------------------
+Preguntar el tema de los atributos optionals (en las cuentas, segundo propietario)
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+en el mappedBy (fetch = FetchType.EAGER) para el usuario para que se traiga todas sus 
+cuentas cuando lo consultemos o... creamos un método en el Service (?) o Repository (?)
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+Controllers y Servirces solo a usuarios ya que estos son los que hacen las funciones.
+@Autowired de AccountRepository
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+Se pueden hacer las rutas de las ThirdParty libres (sin autentificacio)
+Pero desde JSON deberan enviarnos ID del owner del account, ID del ThirdParty 
+en un RequestBody excepto el HashKey del ThirdParty
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+En crear accountHolder
+1 endpoint para checking (si es menor de 24 que haga un StudentCheking) LocalDate tiene un
+metodo para comparar años 
+1 endpoint para saving
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+<<<<<<<<06/12/2022

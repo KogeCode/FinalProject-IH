@@ -4,26 +4,24 @@ import jakarta.persistence.*;
 
 @Entity
 public class Admin extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "admin_id", nullable = false)
-    private Long adminId;
+    private String nameAdmin;
 
     public Admin() {
     }
 
-    public Admin(String name) {
-        super(name);
+    public Admin(String name, String password, String nameAdmin) {
+        super(name, password);
+        this.nameAdmin=nameAdmin;
     }
 
-    public Long getAdminId() {
-        return adminId;
+    public String getNameAdmin() {
+        return nameAdmin;
     }
 
-    public void setAdminId(Long adminId) {
-        this.adminId = adminId;
+    public void setNameAdmin(String nameAdmin) {
+        this.nameAdmin = nameAdmin;
     }
+}
 
     //CREAR METODO PARA CREAR CUENTAS (solo checking, saving, CreditCard)
-}
 

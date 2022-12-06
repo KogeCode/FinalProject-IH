@@ -20,10 +20,5 @@ public class CheckingController {
         return checkingService.addChecking(checking);
     }
 
-    @PostMapping("/update-checking")
-    @ResponseStatus(HttpStatus.OK)
-    public Checking updateChecking (@RequestBody UpdateCheckingDTO updatecheckingDTO){
 
-        return checkingService.updateChecking(updatecheckingDTO);
-    }
 }

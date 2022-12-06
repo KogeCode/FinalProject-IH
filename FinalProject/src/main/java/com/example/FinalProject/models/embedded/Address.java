@@ -1,37 +1,26 @@
-package com.example.FinalProject.models;
+package com.example.FinalProject.models.embedded;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-@Entity
-public class Adress {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long adressId;
+@Embeddable
+public class Address {
+
     private String street;
     private Integer postalCode;
     private String city;
     private String country;
 
-    public Adress() {
+    public Address() {
     }
 
-    public Adress(String street, Integer postalCode, String city, String country) {
+    public Address(String street, Integer postalCode, String city, String country) {
         this.street = street;
         this.postalCode = postalCode;
         this.city = city;
         this.country = country;
     }
 
-    public Long getAdressId() {
-        return adressId;
-    }
 
-    public void setAdressId(Long adressId) {
-        this.adressId = adressId;
-    }
 
     public String getStreet() {
         return street;
