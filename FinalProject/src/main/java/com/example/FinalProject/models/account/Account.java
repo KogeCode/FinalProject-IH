@@ -17,7 +17,7 @@ public abstract class Account {
     private BigDecimal balance;
     private String primaryOwner;
     private String secundaryOwner;
-    private final Double PENALTHY_FEE = 40.0;
+    private final BigDecimal PENALTHY_FEE = new BigDecimal(40);
     @ManyToOne
     private AccountHolder accountHolder;
     @ManyToOne
@@ -88,7 +88,7 @@ public abstract class Account {
         this.secundaryOwner = secundaryOwner;
     }
 
-    public Double getPENALTHY_FEE() {
+    public BigDecimal getPENALTHY_FEE() {
         return PENALTHY_FEE;
     }
 

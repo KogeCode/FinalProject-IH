@@ -124,4 +124,11 @@ public class SavingAccount extends Account {
             lastApplyInterest.plusYears(Period.between(lastApplyInterest, LocalDate.now()).getYears());
         }
     }
+
+    //Metodo para aplicar el pentalthyFee una vez el balance de la cuenta
+    public void penalthyFeeApply (){
+        if(super.getBalance().compareTo(minimumBalance)<0){
+            super.setBalance(super.getBalance().subtract(getPENALTHY_FEE()));
+        }
+    }
 }

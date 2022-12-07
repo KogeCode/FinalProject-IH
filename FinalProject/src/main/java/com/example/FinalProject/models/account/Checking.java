@@ -92,4 +92,10 @@ public class Checking extends Account {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public void penalthyFeeApply (){
+        if(super.getBalance().compareTo(minimumBalance)<0){
+            super.setBalance(super.getBalance().subtract(getPENALTHY_FEE()));
+        }
+    }
 }
