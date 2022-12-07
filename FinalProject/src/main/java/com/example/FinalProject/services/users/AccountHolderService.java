@@ -1,6 +1,8 @@
 package com.example.FinalProject.services.users;
 
 import com.example.FinalProject.models.account.Account;
+import com.example.FinalProject.models.account.Checking;
+import com.example.FinalProject.models.embedded.Address;
 import com.example.FinalProject.models.users.AccountHolder;
 import com.example.FinalProject.models.users.Role;
 import com.example.FinalProject.repositories.accounts.AccountRepository;
@@ -31,6 +33,20 @@ public class AccountHolderService {
         AccountHolder accountHolder1 = accountHolderRepository.save(accountHolder);
         roleRepository.save(new Role("ACCOUNT_HOLDER",accountHolder1));
         return accountHolder1;
+    }
+
+    public AccountHolder updateAddress(Long id, Address address) {
+        AccountHolder accountHolder = accountHolderRepository.findById(id).orElseThrow(
+                ()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "El ID del AccountHolder no está registrado en la base de datos"));
+        accountHolder.setPrimaryAddress(address);
+        return accountHolderRepository.save(accountHolder);
+    }
+
+    public void deleteAccountHolder(Long id) {
+        AccountHolder accountHolder = accountHolderRepository.findById(id).orElseThrow(
+                ()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "El ID del AccountHolder no está registrado en la base de datos"));
+
+        accountHolderRepository.deleteById(accountHolder.getUserId());
     }
 
     //Metodo para obtener el balance de las cuentas filtrado por ID

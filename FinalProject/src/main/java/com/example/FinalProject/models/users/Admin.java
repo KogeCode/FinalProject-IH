@@ -1,9 +1,13 @@
 package com.example.FinalProject.models.users;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
+@DynamicUpdate
 public class Admin extends User{
+    @NotEmpty
     private String nameAdmin;
 
     public Admin() {

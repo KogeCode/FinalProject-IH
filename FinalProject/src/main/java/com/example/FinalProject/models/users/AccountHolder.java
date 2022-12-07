@@ -4,6 +4,9 @@ import com.example.FinalProject.models.account.Account;
 import com.example.FinalProject.models.embedded.Address;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,10 +14,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class AccountHolder extends User{
-
+@DynamicUpdate
+public class AccountHolder extends User {
+    @NotNull
     private LocalDate dateOfBirth;
-
+    @NotNull
     @Embedded
     private Address primaryAddress;
 
@@ -30,7 +34,7 @@ public class AccountHolder extends User{
     @OneToMany(mappedBy = "accountHolder", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Account> accountList = new ArrayList<>();
-    @OneToMany(mappedBy ="accountHolderSecundary" )
+    @OneToMany(mappedBy = "accountHolderSecundary")
     @JsonIgnore
     private List<Account> accountListSecundaryOwner = new ArrayList<>();
 

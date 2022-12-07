@@ -1,10 +1,11 @@
 package com.example.FinalProject.models.users;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 public class ThirdParty extends User {
-
+    @NotEmpty
     private String HashedKey;
 
     public ThirdParty() {

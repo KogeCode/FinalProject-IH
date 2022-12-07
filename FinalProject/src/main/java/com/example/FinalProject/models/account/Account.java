@@ -17,7 +17,7 @@ public abstract class Account {
     private BigDecimal balance;
     private String primaryOwner;
     private String secundaryOwner;
-    private Double penalthyFee;
+    private final Double PENALTHY_FEE = 40.0;
     @ManyToOne
     private AccountHolder accountHolder;
     @ManyToOne
@@ -26,19 +26,17 @@ public abstract class Account {
     public Account() {
     }
 
-    public Account(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, AccountHolder accountHolder, AccountHolder accountHolderSecundary) {
+    public Account(BigDecimal balance, String primaryOwner, String secundaryOwner, AccountHolder accountHolder, AccountHolder accountHolderSecundary) {
         this.balance = balance;
         this.primaryOwner = primaryOwner;
         this.secundaryOwner = secundaryOwner;
-        this.penalthyFee = penalthyFee;
         this.accountHolder = accountHolder;
         this.accountHolderSecundary = accountHolderSecundary;
     }
 
-    public Account(BigDecimal balance, String primaryOwner, Double penalthyFee, AccountHolder accountHolder) {
+    public Account(BigDecimal balance, String primaryOwner,  AccountHolder accountHolder) {
         this.balance = balance;
         this.primaryOwner = primaryOwner;
-        this.penalthyFee = penalthyFee;
         this.accountHolder = accountHolder;
     }
 
@@ -90,11 +88,9 @@ public abstract class Account {
         this.secundaryOwner = secundaryOwner;
     }
 
-    public Double getPenalthyFee() {
-        return penalthyFee;
+    public Double getPENALTHY_FEE() {
+        return PENALTHY_FEE;
     }
 
-    public void setPenalthyFee(Double penalthyFee) {
-        this.penalthyFee = penalthyFee;
-    }
+
 }

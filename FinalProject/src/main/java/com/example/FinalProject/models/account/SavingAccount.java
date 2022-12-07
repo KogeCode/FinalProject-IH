@@ -6,43 +6,90 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.Min;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
-public class SavingAccount extends Account{
-    private Double interest;
+@DynamicUpdate
+public class SavingAccount extends Account {
+
+    private Double interest; // 0.0025 - 0.5
     private String secretKey;
     private LocalDate creationDate;
-    @Enumerated (EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    private BigDecimal minimumBalance;
+
+    private LocalDate lastApplyInterest = LocalDate.now();
 
     public SavingAccount() {
     }
 
-    public SavingAccount(BigDecimal balance, String primaryOwner, String secundaryOwner, Double penalthyFee, AccountHolder accountHolder, AccountHolder accountHolderSecundary, Double interest, String secretKey, LocalDate creationDate) {
-        super(balance, primaryOwner, secundaryOwner, penalthyFee, accountHolder, accountHolderSecundary);
+    public SavingAccount(BigDecimal balance, String primaryOwner, String secundaryOwner, AccountHolder accountHolder, AccountHolder accountHolderSecundary, Double interest, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance, LocalDate lastApplyInterest) {
+        super(balance, primaryOwner, secundaryOwner, accountHolder, accountHolderSecundary);
         this.interest = interest;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status = status;
+        this.minimumBalance = minimumBalance;
+        this.lastApplyInterest = lastApplyInterest;
     }
 
-    public SavingAccount(BigDecimal balance, String primaryOwner, Double penalthyFee, AccountHolder accountHolder, Double interest, String secretKey, LocalDate creationDate) {
-        super(balance, primaryOwner, penalthyFee, accountHolder);
+    public SavingAccount(BigDecimal balance, String primaryOwner, AccountHolder accountHolder, Double interest, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance, LocalDate lastApplyInterest) {
+        super(balance, primaryOwner, accountHolder);
         this.interest = interest;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status = status;
+        this.minimumBalance = minimumBalance;
+        this.lastApplyInterest = lastApplyInterest;
     }
 
     public Double getInterest() {
         return interest;
     }
 
+    public BigDecimal getMinimumBalance() {
+        return minimumBalance;
+    }
+
+    public void setMinimumBalance(BigDecimal minimumBalance) {
+        BigDecimal defaultValor = BigDecimal.valueOf(1000);
+        BigDecimal minValor = BigDecimal.valueOf(100);
+
+
+        if (minimumBalance == null) {
+            this.minimumBalance = defaultValor;
+        } else if (minimumBalance.compareTo(minValor) < 0) {
+            this.minimumBalance = defaultValor;
+        } else {
+            this.minimumBalance = minimumBalance;
+        }
+    }
+
+    public LocalDate getLastApplyInterest() {
+        return lastApplyInterest;
+    }
+
+    public void setLastApplyInterest(LocalDate lastApplyInterest) {
+        this.lastApplyInterest = lastApplyInterest;
+    }
+
     public void setInterest(Double interest) {
-        this.interest = interest;
+        double defaultInterest = 0.0025;
+        if (interest == null) {
+            this.interest = defaultInterest;
+        } else if (interest > 0.5) {
+            this.interest = 0.5;
+        } else {
+            this.interest = interest;
+        }
+
     }
 
     public String getSecretKey() {
@@ -67,5 +114,14 @@ public class SavingAccount extends Account{
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void applyInterest() {
+        if (Period.between(lastApplyInterest, LocalDate.now()).getYears() > 1) {
+            super.setBalance(super.getBalance().add(super.getBalance().multiply(BigDecimal.valueOf(interest/12))
+                    .multiply(BigDecimal.valueOf((Period.between(lastApplyInterest, LocalDate.now()).getYears())))));
+            //Actualizamos el lastInterest a fecha actual sin perder los años
+            lastApplyInterest.plusYears(Period.between(lastApplyInterest, LocalDate.now()).getYears());
+        }
     }
 }

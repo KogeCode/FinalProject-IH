@@ -16,6 +16,5 @@ public class StudentCheckingController {
     @ResponseStatus(HttpStatus.CREATED)
     public StudentChecking addStudentChecking (@RequestBody StudentChecking studentChecking){
        return studentCheckingService.addNewStudentChecking(studentChecking);
-
     }
 }

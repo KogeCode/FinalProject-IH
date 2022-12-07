@@ -18,11 +18,9 @@ public class CheckingController {
         return checkingService.addNewChecking(checking);
     }
 
-    /** @PostMapping("/add-checking")
-     @ResponseStatus (HttpStatus.ACCEPTED)
-     public Checking addNewChecking(@RequestBody Checking checking){
-     return checkingService.addChecking(checking);
-     }*/
-
-
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteChecking (@PathVariable Long id){
+        checkingService.deleteChecking(id);
+    }
 }

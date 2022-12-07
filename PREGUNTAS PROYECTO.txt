@@ -1,6 +1,5 @@
 
->>>>06/12/2022
-
+>>>>>>> 06/12/2022
 ----------------------------------------------------------------------------------------
 La relaciones manytoOne etc entre clases, no las tengo claras.
 
@@ -8,14 +7,14 @@ Un usuario tiene varias cuentas o como va?
 Tengo que hacer la relacion con la clase padre o con las subclases?
 Hay que hacerlo bidireccional?
 
-		///PENDIENTE///
+		///HECHO/// 06/12/2022
 ----------------------------------------------------------------------------------------
 @Enumerated (EnumType.STRING)
 @Column (columnDefinition = "ENUM('FROZEN','ACTIVE')")
 
 Es necesario hacer el Enum.Type??
 
-		///HECHO///
+		///HECHO/// 06/12/2022
 ----------------------------------------------------------------------------------------
 HERENCIAS DE CLASES CON SPRINGBOOT
 
@@ -35,15 +34,15 @@ A la clase padre hay que añadir...
 <public abstract class "Nombre de la clase">{
 }
 
-		///HECHO///
+		///HECHO/// 06/12/2022
 ----------------------------------------------------------------------------------------
 Como relacionar los Users con las Account?
 
-		///PENDIENTE///
+		///HECHO/// 06/12/2022
 ----------------------------------------------------------------------------------------
 -->Clase Adress pasarla a Embeded
 HECHO
-		///HECHO///
+		///HECHO/// 06/12/2022
 ----------------------------------------------------------------------------------------
 Preguntar el tema de los atributos optionals (en las cuentas, segundo propietario)
 		///PENDIENTE///
@@ -51,12 +50,12 @@ Preguntar el tema de los atributos optionals (en las cuentas, segundo propietari
 en el mappedBy (fetch = FetchType.EAGER) para el usuario para que se traiga todas sus 
 cuentas cuando lo consultemos o... creamos un método en el Service (?) o Repository (?)
 
-		///PENDIENTE///
+		///HECHO/// 06/12/2022
 ----------------------------------------------------------------------------------------
-Controllers y Servirces solo a usuarios ya que estos son los que hacen las funciones.
+Controllers y Services solo a usuarios ya que estos son los que hacen las funciones.
 @Autowired de AccountRepository
 
-		///PENDIENTE///
+		///HECHO/// 06/12/2022
 ----------------------------------------------------------------------------------------
 Se pueden hacer las rutas de las ThirdParty libres (sin autentificacio)
 Pero desde JSON deberan enviarnos ID del owner del account, ID del ThirdParty 
@@ -71,4 +70,33 @@ metodo para comparar años
 
 		///PENDIENTE///
 ----------------------------------------------------------------------------------------
-<<<<<<<<06/12/2022
+AccounHolder crear la logica para el uso de cuenta
+AdminService  crear la logica para el uso de cuenta
+ThirdParty crear la logica para el uso de cuenta
+
+		///PENDIENTE///1/2
+--------------------------------------------------------------------------------------- 
+DTOs de Account y User con todas las propiedades y luego yo ya cojo los datos que me interesen
+
+
+		///PENDIENTE///
+----------------------------------------------------------------------------------------
+<<<<<<<< 06/12/2022
+>>>>>>>> 07/12/2022
+----------------------------------------------------------------------------------------
+
+¿Cómo hago para que solo el admin service pueda crear y eliminar cuentas?
+
+        ///PENDIENTE///
+----------------------------------------------------------------------------------------
+Terminar métodos CRUD (GETTERS, 1 PATCH y 1 DELETE
+        ///HECHO/// 07/12/2022
+----------------------------------------------------------------------------------------
+Comenzar a implementar lógica (fees, interestrating, etc.)
+        ///PENDIENTE///
+----------------------------------------------------------------------------------------
+Implementar valores por defecto
+etiquetas jakarta
+        ///PENDIENTE///
+----------------------------------------------------------------------------------------
+<<<<<<<< 07/12/2022
