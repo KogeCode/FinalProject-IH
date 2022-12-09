@@ -14,7 +14,7 @@ public abstract class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
     private Long userId;
-    private String name;
+    private String username;
 
     private String password;
 
@@ -25,8 +25,8 @@ public abstract class User {
     public User() {
     }
 
-    public User(String name, String password) {
-        this.name = name;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
@@ -54,11 +54,11 @@ public abstract class User {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
