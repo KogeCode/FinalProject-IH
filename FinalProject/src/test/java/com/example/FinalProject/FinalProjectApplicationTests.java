@@ -2,10 +2,8 @@ package com.example.FinalProject;
 
 import com.example.FinalProject.models.account.Checking;
 import com.example.FinalProject.models.account.SavingAccount;
-import com.example.FinalProject.models.embedded.Address;
 import com.example.FinalProject.models.users.AccountHolder;
 import com.example.FinalProject.models.users.Admin;
-import com.example.FinalProject.models.users.User;
 import com.example.FinalProject.repositories.accounts.*;
 import com.example.FinalProject.repositories.users.AccountHolderRepository;
 import com.example.FinalProject.repositories.users.AdminRepository;
@@ -16,9 +14,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

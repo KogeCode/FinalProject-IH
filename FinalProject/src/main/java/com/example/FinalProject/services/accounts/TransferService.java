@@ -4,9 +4,7 @@ import com.example.FinalProject.models.Transaction;
 import com.example.FinalProject.models.account.Account;
 import com.example.FinalProject.models.account.Checking;
 import com.example.FinalProject.models.account.SavingAccount;
-import com.example.FinalProject.models.account.StudentChecking;
 import com.example.FinalProject.repositories.accounts.AccountRepository;
-import com.example.FinalProject.repositories.accounts.CheckingRepository;
 import com.example.FinalProject.repositories.users.ThirdPartyRepository;
 import com.example.FinalProject.repositories.users.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +76,7 @@ public class TransferService {
         Transaction transaction = new Transaction();
         account.setBalance(account.getBalance().subtract(money));
         accountRepository.save(account);
-        transaction.setAmount(account.getBalance());
+        transaction.setAmount(money);
         transaction.setId(account.getAccountId());
         transactionRepository.save(transaction);
     }
@@ -102,6 +100,21 @@ public class TransferService {
             ((SavingAccount) account).penalthyFeeApply();
         }
 
+
+        Transaction transaction = new Transaction();
+        //factorizamos account1
+        //restamos la cantidad de dinero a la cuenta
+        account.setBalance(account.getBalance().subtract(money));
+        accountRepository.save(account);
+
+        //se la incrementamos al destinatario
+        accountD.setBalance(accountD.getBalance().add(money));
+        accountRepository.save(accountD);
+
+        transaction.setAmount(money);
+        transaction.setSenderAccount(account);
+        transaction.setDestinationAccount(accountD);
+        transactionRepository.save(transaction);
 
     }
 }

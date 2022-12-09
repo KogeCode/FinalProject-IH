@@ -3,13 +3,12 @@ package com.example.FinalProject.models;
 import com.example.FinalProject.models.account.Account;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "transactions")
 public class Transaction {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

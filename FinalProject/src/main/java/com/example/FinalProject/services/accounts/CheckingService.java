@@ -1,10 +1,8 @@
 package com.example.FinalProject.services.accounts;
 
-import com.example.FinalProject.enums.Status;
 import com.example.FinalProject.models.account.Account;
 import com.example.FinalProject.models.account.Checking;
 import com.example.FinalProject.models.account.StudentChecking;
-import com.example.FinalProject.models.users.AccountHolder;
 import com.example.FinalProject.repositories.accounts.AccountRepository;
 import com.example.FinalProject.repositories.accounts.CheckingRepository;
 import com.example.FinalProject.repositories.accounts.StudentCheckingRepository;
@@ -13,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -42,7 +39,6 @@ public class CheckingService {
     public void  deleteChecking(Long id) {
         Checking checking = checkingRepository.findById(id).orElseThrow(
                 ()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "El ID del AccountHolder no está registrado en la base de datos"));
-
       checkingRepository.deleteById(checking.getAccountId());
     }
 }

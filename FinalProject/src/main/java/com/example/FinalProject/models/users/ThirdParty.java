@@ -1,6 +1,6 @@
 package com.example.FinalProject.models.users;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity
@@ -13,7 +13,7 @@ public class ThirdParty extends User {
 
     public ThirdParty(String name, String password, String hashedKey) {
         super(name, password);
-        hashedKey = hashedKey;
+        this.hashedKey = hashedKey;
     }
 
 
@@ -22,6 +22,6 @@ public class ThirdParty extends User {
     }
 
     public void setHashedKey(String hashedKey) {
-        hashedKey = hashedKey;
+        this.hashedKey= hashedKey;
     }
 }

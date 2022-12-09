@@ -1,6 +1,6 @@
 package com.example.FinalProject.models.users;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.annotations.DynamicUpdate;
 

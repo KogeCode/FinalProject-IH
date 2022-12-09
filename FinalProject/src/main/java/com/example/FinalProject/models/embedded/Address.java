@@ -1,6 +1,6 @@
 package com.example.FinalProject.models.embedded;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 

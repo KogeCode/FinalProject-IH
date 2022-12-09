@@ -1,7 +1,6 @@
 package com.example.FinalProject.services.users;
 
 import com.example.FinalProject.models.account.Account;
-import com.example.FinalProject.models.account.Checking;
 import com.example.FinalProject.models.account.CreditCard;
 import com.example.FinalProject.models.account.SavingAccount;
 import com.example.FinalProject.models.embedded.Address;

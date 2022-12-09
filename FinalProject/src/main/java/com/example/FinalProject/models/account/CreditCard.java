@@ -1,8 +1,7 @@
 package com.example.FinalProject.models.account;
 
-import com.example.FinalProject.enums.Status;
 import com.example.FinalProject.models.users.AccountHolder;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

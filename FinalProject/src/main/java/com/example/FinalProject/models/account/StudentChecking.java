@@ -2,7 +2,9 @@ package com.example.FinalProject.models.account;
 
 import com.example.FinalProject.enums.Status;
 import com.example.FinalProject.models.users.AccountHolder;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.annotations.DynamicUpdate;
 

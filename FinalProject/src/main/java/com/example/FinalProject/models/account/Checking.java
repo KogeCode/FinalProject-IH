@@ -2,10 +2,8 @@ package com.example.FinalProject.models.account;
 
 import com.example.FinalProject.enums.Status;
 import com.example.FinalProject.models.users.AccountHolder;
-import jakarta.persistence.*;
-import jdk.jshell.Snippet;
+import jakarta.persistence.Entity;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;

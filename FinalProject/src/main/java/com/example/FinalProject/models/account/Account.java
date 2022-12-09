@@ -2,7 +2,6 @@ package com.example.FinalProject.models.account;
 
 import com.example.FinalProject.models.users.AccountHolder;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;

@@ -4,13 +4,11 @@ import com.example.FinalProject.models.account.Account;
 import com.example.FinalProject.models.embedded.Address;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
