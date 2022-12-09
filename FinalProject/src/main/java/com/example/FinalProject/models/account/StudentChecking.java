@@ -5,7 +5,6 @@ import com.example.FinalProject.models.users.AccountHolder;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.math.BigDecimal;
@@ -14,12 +13,9 @@ import java.time.LocalDate;
 @Entity
 @DynamicUpdate
 public class StudentChecking extends Account{
-    @NotEmpty
     private String secretKey;
-    @NotEmpty
     private LocalDate creationDate;
     @Enumerated (EnumType.STRING)
-    @NotEmpty
     private Status status;
 
     public StudentChecking() {

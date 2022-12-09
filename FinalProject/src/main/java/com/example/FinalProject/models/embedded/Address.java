@@ -1,18 +1,12 @@
 package com.example.FinalProject.models.embedded;
 
 import jakarta.persistence.Embeddable;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 @Embeddable
 public class Address {
-    @NotEmpty
     private String street;
-    @NotNull
     private Integer postalCode;
-    @NotEmpty
     private String city;
-    @NotEmpty
     private String country;
 
     public Address() {
