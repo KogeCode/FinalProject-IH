@@ -1,6 +1,7 @@
 package com.example.FinalProject.models;
 
 import com.example.FinalProject.models.account.Account;
+import com.example.FinalProject.models.users.AccountHolder;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
@@ -17,48 +18,39 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "sender_account_id")
-    private Account senderAccount;
+    private AccountHolder senderAccount;
 
     @ManyToOne
     @JoinColumn (name = "destination_account_id")
-    private Account destinationAccount;
+    private AccountHolder destinationAccount;
 
     private BigDecimal amount;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     private final LocalDateTime transactionDate=LocalDateTime.now();
 
-    public Transaction(Account senderAccount, Account destinationAccount, BigDecimal amount) {
+    public Transaction() {
+    }
+
+    public Transaction(AccountHolder senderAccount, AccountHolder destinationAccount, BigDecimal amount) {
         this.senderAccount = senderAccount;
         this.destinationAccount = destinationAccount;
         this.amount = amount;
     }
 
-    public Transaction() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Account getSenderAccount() {
+    public AccountHolder getSenderAccount() {
         return senderAccount;
     }
 
-    public void setSenderAccount(Account senderAccount) {
+    public void setSenderAccount(AccountHolder senderAccount) {
         this.senderAccount = senderAccount;
     }
 
-    public Account getDestinationAccount() {
+    public AccountHolder getDestinationAccount() {
         return destinationAccount;
     }
 
-    public void setDestinationAccount(Account destinationAccount) {
+    public void setDestinationAccount(AccountHolder destinationAccount) {
         this.destinationAccount = destinationAccount;
     }
 

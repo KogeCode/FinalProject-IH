@@ -1,5 +1,6 @@
 package com.example.FinalProject.models.users;
 
+import com.example.FinalProject.models.Transaction;
 import com.example.FinalProject.models.account.Account;
 import com.example.FinalProject.models.embedded.Address;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -38,6 +39,14 @@ public class AccountHolder extends User {
     @JsonIgnore
     private List<Account> accountListSecundaryOwner = new ArrayList<>();
 
+    @OneToMany(mappedBy = "senderAccount")
+    private List<Transaction> transactionsSendedList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "destinationAccount")
+    private  List<Transaction> transactionsRecivedList = new ArrayList<>();
+
+
+
     public AccountHolder() {
     }
 
@@ -48,6 +57,21 @@ public class AccountHolder extends User {
 
     }
 
+    public List<Transaction> getTransactionsSendedList() {
+        return transactionsSendedList;
+    }
+
+    public void setTransactionsSendedList(List<Transaction> transactionsSendedList) {
+        this.transactionsSendedList = transactionsSendedList;
+    }
+
+    public List<Transaction> getTransactionsRecivedList() {
+        return transactionsRecivedList;
+    }
+
+    public void setTransactionsRecivedList(List<Transaction> transactionsRecivedList) {
+        this.transactionsRecivedList = transactionsRecivedList;
+    }
 
     public Address getPrimaryAddress() {
         return primaryAddress;
