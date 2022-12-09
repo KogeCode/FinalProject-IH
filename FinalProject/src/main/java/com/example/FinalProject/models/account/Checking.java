@@ -3,6 +3,9 @@ package com.example.FinalProject.models.account;
 import com.example.FinalProject.enums.Status;
 import com.example.FinalProject.models.users.AccountHolder;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -10,11 +13,13 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
+@DynamicUpdate
 public class Checking extends Account {
 
     private Double monthlyMaintenanceFee = 12.0;
     private String secretKey;
-    private LocalDate creationDate;
+    private LocalDate creationDate = LocalDate.now();
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     private BigDecimal minimumBalance;
@@ -51,7 +56,7 @@ public class Checking extends Account {
         if (minimumBalance == null) {
             this.minimumBalance = defaultValor;
         } else if (minimumBalance.compareTo(defaultValor) < 0) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "the minimumBalance must be 12");
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "the minimumBalance tiene que ser mas grande que 250");
         } else {
             this.minimumBalance = minimumBalance;
         }

@@ -17,7 +17,7 @@ public class SavingAccount extends Account {
 
     private Double interest; // 0.0025 - 0.5
     private String secretKey;
-    private LocalDate creationDate;
+    private LocalDate creationDate =  LocalDate.now();
     @Enumerated(EnumType.STRING)
     private Status status;
 

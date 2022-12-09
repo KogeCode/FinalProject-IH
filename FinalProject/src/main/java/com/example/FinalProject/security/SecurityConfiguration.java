@@ -28,7 +28,7 @@ public class SecurityConfiguration {
         httpSecurity.httpBasic();
 
         httpSecurity.authorizeHttpRequests()
-
+                .requestMatchers(HttpMethod.POST, "/create-accountHolder").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/account-holder/add").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/student-accounts/add").hasRole("")
@@ -43,7 +43,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.PUT, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
                 .requestMatchers(HttpMethod.PATCH, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
                 .requestMatchers(HttpMethod.DELETE, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
-                .requestMatchers(HttpMethod.PUT, "/Receive/accountId/{accountId}/accountDestination/{accountDestination}/money/{money}").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.PUT, "/Receive/**").hasRole("ACCOUNT_HOLDER")
                 //Ver como poner varios roles a un endpoint.
 
                 .requestMatchers(HttpMethod.GET, "/account-admin**").hasRole("ADMIN")

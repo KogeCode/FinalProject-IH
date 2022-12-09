@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @DynamicUpdate
 public class StudentChecking extends Account{
     private String secretKey;
-    private LocalDate creationDate;
+    private LocalDate creationDate =  LocalDate.now();
     @Enumerated (EnumType.STRING)
     private Status status;
 
