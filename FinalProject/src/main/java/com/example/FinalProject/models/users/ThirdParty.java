@@ -6,22 +6,22 @@ import jakarta.validation.constraints.NotEmpty;
 @Entity
 public class ThirdParty extends User {
     @NotEmpty
-    private String HashedKey;
+    private String hashedKey;
 
     public ThirdParty() {
     }
 
     public ThirdParty(String name, String password, String hashedKey) {
         super(name, password);
-        HashedKey = hashedKey;
+        hashedKey = hashedKey;
     }
 
 
     public String getHashedKey() {
-        return HashedKey;
+        return hashedKey;
     }
 
     public void setHashedKey(String hashedKey) {
-        HashedKey = hashedKey;
+        hashedKey = hashedKey;
     }
 }

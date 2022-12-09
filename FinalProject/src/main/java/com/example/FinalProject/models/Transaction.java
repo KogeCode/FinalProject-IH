@@ -28,6 +28,12 @@ public class Transaction {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private final LocalDateTime transactionDate=LocalDateTime.now();
 
+    public Transaction(Account senderAccount, BigDecimal amount) {
+        this.senderAccount = senderAccount;
+        this.amount = amount;
+    }
+
+
     public Transaction(Account senderAccount, Account destinationAccount, BigDecimal amount) {
         this.senderAccount = senderAccount;
         this.destinationAccount = destinationAccount;

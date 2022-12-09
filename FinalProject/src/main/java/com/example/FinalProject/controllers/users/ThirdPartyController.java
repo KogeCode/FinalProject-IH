@@ -17,4 +17,5 @@ public class ThirdPartyController {
     public ThirdParty addNewThirdParty (@RequestBody ThirdParty thirdParty){
         return thirdPartyService.addNewThirdParty(thirdParty);
     }
+
 }

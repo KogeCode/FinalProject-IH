@@ -50,8 +50,6 @@ public class Checking extends Account {
     public void setMinimumBalance(BigDecimal minimumBalance) {
 
         BigDecimal defaultValor = BigDecimal.valueOf(250);
-
-
         if (minimumBalance == null) {
             this.minimumBalance = defaultValor;
         } else if (minimumBalance.compareTo(defaultValor) < 0) {
