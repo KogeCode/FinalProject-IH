@@ -27,5 +27,4 @@ public class Admin extends User{
     }
 }
 
-    //CREAR METODO PARA CREAR CUENTAS (solo checking, saving, CreditCard)
 

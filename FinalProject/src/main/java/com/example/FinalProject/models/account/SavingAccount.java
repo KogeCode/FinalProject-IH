@@ -30,22 +30,22 @@ public class SavingAccount extends Account {
     public SavingAccount() {
     }
 
-    public SavingAccount(BigDecimal balance, String primaryOwner, String secundaryOwner, AccountHolder accountHolder, AccountHolder accountHolderSecundary, Double interest, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance, LocalDate lastApplyInterest) {
-        super(balance, primaryOwner, secundaryOwner, accountHolder, accountHolderSecundary);
+    public SavingAccount(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner, Double interest, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance, LocalDate lastApplyInterest) {
+        super(balance, primaryOwner, secundaryOwner);
         this.interest = interest;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = status;
+        this.status = Status.ACTIVE;
         this.minimumBalance = minimumBalance;
         this.lastApplyInterest = lastApplyInterest;
     }
 
-    public SavingAccount(BigDecimal balance, String primaryOwner, AccountHolder accountHolder, Double interest, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance, LocalDate lastApplyInterest) {
-        super(balance, primaryOwner, accountHolder);
+    public SavingAccount(BigDecimal balance, AccountHolder primaryOwner, Double interest, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance, LocalDate lastApplyInterest) {
+        super(balance, primaryOwner);
         this.interest = interest;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = status;
+        this.status = Status.ACTIVE;
         this.minimumBalance = minimumBalance;
         this.lastApplyInterest = lastApplyInterest;
     }

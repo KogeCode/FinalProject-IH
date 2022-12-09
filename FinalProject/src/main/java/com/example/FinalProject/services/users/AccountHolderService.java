@@ -8,11 +8,13 @@ import com.example.FinalProject.models.users.Role;
 import com.example.FinalProject.repositories.accounts.AccountRepository;
 import com.example.FinalProject.repositories.users.AccountHolderRepository;
 import com.example.FinalProject.repositories.users.RoleRepository;
+import com.example.FinalProject.repositories.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -21,6 +23,10 @@ public class AccountHolderService {
     AccountHolderRepository accountHolderRepository;
     @Autowired
     RoleRepository roleRepository;
+    @Autowired
+    AccountRepository accountRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     //Obtención de todas las cuentas filtradas por ID del Usuario AccountHolder
     public List<Account> getAccountsList (Long id){
@@ -49,7 +55,13 @@ public class AccountHolderService {
         accountHolderRepository.deleteById(accountHolder.getUserId());
     }
 
+    public BigDecimal getBalanceAccountHolder(Long id, String secretKey) {
+        AccountHolder accountHolder = accountHolderRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "El ID del AccountHolder no está registrado en la base de datos"));
+        if (accountHolder.getPassword().equals(secretKey)){
+            return accountHolder.getAccountList()
+        }
+    }
+
     //Metodo para obtener el balance de las cuentas filtrado por ID
 
-    //Metodo para actualizar datos (dirección)
 }

@@ -31,10 +31,10 @@ public class AccountHolder extends User {
     })
     private Address mailingAddress;
 
-    @OneToMany(mappedBy = "accountHolder", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "primaryOwner", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Account> accountList = new ArrayList<>();
-    @OneToMany(mappedBy = "accountHolderSecundary")
+    @OneToMany(mappedBy = "secundaryOwner")
     @JsonIgnore
     private List<Account> accountListSecundaryOwner = new ArrayList<>();
 

@@ -2,6 +2,8 @@ package com.example.FinalProject.models.account;
 
 import com.example.FinalProject.models.users.AccountHolder;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
@@ -15,45 +17,26 @@ public abstract class Account {
     private Long accountId;
 
     private BigDecimal balance;
-    private String primaryOwner;
-    private String secundaryOwner;
+    @ManyToOne
+    @NotNull
+    @JoinColumn (name = "owner_account_id")
+    private AccountHolder primaryOwner;
+    @ManyToOne
+    private AccountHolder secundaryOwner;
     private final BigDecimal PENALTHY_FEE = new BigDecimal(40);
-    @ManyToOne
-    private AccountHolder accountHolder;
-    @ManyToOne
-    private AccountHolder accountHolderSecundary;
 
     public Account() {
     }
 
-    public Account(BigDecimal balance, String primaryOwner, String secundaryOwner, AccountHolder accountHolder, AccountHolder accountHolderSecundary) {
+    public Account(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner) {
         this.balance = balance;
         this.primaryOwner = primaryOwner;
         this.secundaryOwner = secundaryOwner;
-        this.accountHolder = accountHolder;
-        this.accountHolderSecundary = accountHolderSecundary;
     }
 
-    public Account(BigDecimal balance, String primaryOwner,  AccountHolder accountHolder) {
+    public Account(BigDecimal balance, AccountHolder primaryOwner) {
         this.balance = balance;
         this.primaryOwner = primaryOwner;
-        this.accountHolder = accountHolder;
-    }
-
-    public AccountHolder getAccountHolder() {
-        return accountHolder;
-    }
-
-    public void setAccountHolder(AccountHolder accountHolder) {
-        this.accountHolder = accountHolder;
-    }
-
-    public AccountHolder getAccountHolderSecundary() {
-        return accountHolderSecundary;
-    }
-
-    public void setAccountHolderSecundary(AccountHolder accountHolderSecundary) {
-        this.accountHolderSecundary = accountHolderSecundary;
     }
 
     public Long getAccountId() {
@@ -72,25 +55,23 @@ public abstract class Account {
         this.balance = balance;
     }
 
-    public String getPrimaryOwner() {
+    public AccountHolder getPrimaryOwner() {
         return primaryOwner;
     }
 
-    public void setPrimaryOwner(String primaryOwner) {
+    public void setPrimaryOwner(AccountHolder primaryOwner) {
         this.primaryOwner = primaryOwner;
     }
 
-    public String getSecundaryOwner() {
+    public AccountHolder getSecundaryOwner() {
         return secundaryOwner;
     }
 
-    public void setSecundaryOwner(String secundaryOwner) {
+    public void setSecundaryOwner(AccountHolder secundaryOwner) {
         this.secundaryOwner = secundaryOwner;
     }
 
     public BigDecimal getPENALTHY_FEE() {
         return PENALTHY_FEE;
     }
-
-
 }

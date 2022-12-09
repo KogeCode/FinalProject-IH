@@ -25,8 +25,8 @@ public class Checking extends Account {
     public Checking() {
     }
 
-    public Checking(BigDecimal balance, String primaryOwner, String secundaryOwner, AccountHolder accountHolder, AccountHolder accountHolderSecundary, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance) {
-        super(balance, primaryOwner, secundaryOwner, accountHolder, accountHolderSecundary);
+    public Checking(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance) {
+        super(balance, primaryOwner, secundaryOwner);
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
@@ -34,8 +34,8 @@ public class Checking extends Account {
         this.minimumBalance = minimumBalance;
     }
 
-    public Checking(BigDecimal balance, String primaryOwner, AccountHolder accountHolder, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance) {
-        super(balance, primaryOwner, accountHolder);
+    public Checking(BigDecimal balance, AccountHolder primaryOwner, Double monthlyMaintenanceFee, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance) {
+        super(balance, primaryOwner);
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
         this.secretKey = secretKey;
         this.creationDate = creationDate;

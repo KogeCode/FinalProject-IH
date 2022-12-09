@@ -19,15 +19,15 @@ public class CreditCard extends Account {
     public CreditCard() {
     }
 
-    public CreditCard(BigDecimal balance, String primaryOwner, String secundaryOwner, AccountHolder accountHolder, AccountHolder accountHolderSecundary, BigDecimal creditCardLimit, Double interestRate, LocalDate lastApplyInterest) {
-        super(balance, primaryOwner, secundaryOwner, accountHolder, accountHolderSecundary);
+    public CreditCard(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner, BigDecimal creditCardLimit, Double interestRate, LocalDate lastApplyInterest) {
+        super(balance, primaryOwner, secundaryOwner);
         this.creditCardLimit = creditCardLimit;
         this.interestRate = interestRate;
         this.lastApplyInterest = lastApplyInterest;
     }
 
-    public CreditCard(BigDecimal balance, String primaryOwner, AccountHolder accountHolder, BigDecimal creditCardLimit, Double interestRate, LocalDate lastApplyInterest) {
-        super(balance, primaryOwner, accountHolder);
+    public CreditCard(BigDecimal balance, AccountHolder primaryOwner, BigDecimal creditCardLimit, Double interestRate, LocalDate lastApplyInterest) {
+        super(balance, primaryOwner);
         this.creditCardLimit = creditCardLimit;
         this.interestRate = interestRate;
         this.lastApplyInterest = lastApplyInterest;
