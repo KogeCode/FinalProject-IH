@@ -9,5 +9,5 @@ import java.math.BigDecimal;
 
 @Repository
 public interface AccountHolderRepository extends JpaRepository<AccountHolder,Long> {
-    BigDecimal findByIdUser(Long id);
+
 }

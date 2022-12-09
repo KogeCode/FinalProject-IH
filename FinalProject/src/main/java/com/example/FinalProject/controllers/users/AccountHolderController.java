@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class AccountHolderController {
     public List<Account> getAccountList(@PathVariable Long id){
         return accountHolderService.getAccountsList(id);
     }
-    @PostMapping("/add-account-holder")
+    @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public AccountHolder addNewAccount (@RequestBody AccountHolder accountHolder){
         return accountHolderService.addNewAccount(accountHolder);
@@ -38,5 +39,10 @@ public class AccountHolderController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAccountHolder (@PathVariable Long id){
         accountHolderService.deleteAccountHolder(id);
+    }
+    @GetMapping("/get-balance/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public BigDecimal getBalanceAccountHolder(@PathVariable Long id, @RequestParam Long idAccount){
+        return accountHolderService.getBalanceAccountHolder(id,idAccount);
     }
 }

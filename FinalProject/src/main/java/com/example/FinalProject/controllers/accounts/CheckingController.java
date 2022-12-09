@@ -1,5 +1,6 @@
 package com.example.FinalProject.controllers.accounts;
 
+import com.example.FinalProject.models.account.Account;
 import com.example.FinalProject.models.account.Checking;
 import com.example.FinalProject.services.accounts.CheckingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class CheckingController {
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public Checking addNewChecking(@RequestBody Checking checking) {
+    public Account addNewChecking(@RequestBody Checking checking) {
         return checkingService.addNewChecking(checking);
     }
 

@@ -12,7 +12,7 @@ public class ThirdPartyController {
     @Autowired
     ThirdPartyService thirdPartyService;
 
-    @PostMapping("/add-thirdparty-account")
+    @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public ThirdParty addNewThirdParty (@RequestBody ThirdParty thirdParty){
         return thirdPartyService.addNewThirdParty(thirdParty);
