@@ -28,10 +28,27 @@ public class SecurityConfiguration {
         httpSecurity.httpBasic();
 
         httpSecurity.authorizeHttpRequests()
-                .requestMatchers(HttpMethod.POST, "/thirdparty-account/add").hasRole("ADMIN")
+
                 .requestMatchers(HttpMethod.POST, "/account-holder/add").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/student-accounts/add").hasRole("")
+                .requestMatchers(HttpMethod.POST, "/saving-accounts/add").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/creditcard-accounts/add").hasRole("ADMIN")
+
+
                 .requestMatchers(HttpMethod.DELETE, "/thirdparty-account/delete").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/account-holder/delete").hasRole("ADMIN")
+
+                .requestMatchers(HttpMethod.GET, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.PUT, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.PATCH, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.DELETE, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.PUT, "/Receive/accountId/{accountId}/accountDestination/{accountDestination}/money/{money}").hasRole("ACCOUNT_HOLDER")
+                //Ver como poner varios roles a un endpoint.
+
+                .requestMatchers(HttpMethod.GET, "/account-admin**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/account-admin**").hasRole("ADMIN")
+
                 .anyRequest().permitAll();
         httpSecurity.csrf().disable();
 
