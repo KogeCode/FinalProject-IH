@@ -16,7 +16,7 @@ public class StudentChecking extends Account{
     private String secretKey;
     private LocalDate creationDate =  LocalDate.now();
     @Enumerated (EnumType.STRING)
-    private Status status;
+    private Status status = Status.ACTIVE;
 
     public StudentChecking() {
     }
@@ -25,14 +25,14 @@ public class StudentChecking extends Account{
         super(balance, primaryOwner);
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status = status;
     }
 
     public StudentChecking(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner, String secretKey, LocalDate creationDate, Status status) {
         super(balance, primaryOwner, secundaryOwner);
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status = status;
     }
 
     public String getSecretKey() {

@@ -20,7 +20,7 @@ public class Checking extends Account {
     private String secretKey;
     private LocalDate creationDate = LocalDate.now();
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.ACTIVE;
 
     private BigDecimal minimumBalance;
 
@@ -32,7 +32,7 @@ public class Checking extends Account {
         super(balance, primaryOwner, secundaryOwner);
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status = status;
         this.minimumBalance = minimumBalance;
     }
 
@@ -40,7 +40,7 @@ public class Checking extends Account {
         super(balance, primaryOwner);
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status = status;
         this.minimumBalance = minimumBalance;
     }
 

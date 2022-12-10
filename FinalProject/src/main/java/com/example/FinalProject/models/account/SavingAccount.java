@@ -19,7 +19,7 @@ public class SavingAccount extends Account {
     private String secretKey;
     private LocalDate creationDate =  LocalDate.now();
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.ACTIVE;
 
     private BigDecimal minimumBalance;
 
@@ -33,7 +33,7 @@ public class SavingAccount extends Account {
         this.interest = interest;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status = status;
         this.minimumBalance = minimumBalance;
         this.lastApplyInterest = lastApplyInterest;
     }
@@ -43,7 +43,7 @@ public class SavingAccount extends Account {
         this.interest = interest;
         this.secretKey = secretKey;
         this.creationDate = creationDate;
-        this.status = Status.ACTIVE;
+        this.status = status;
         this.minimumBalance = minimumBalance;
         this.lastApplyInterest = lastApplyInterest;
     }

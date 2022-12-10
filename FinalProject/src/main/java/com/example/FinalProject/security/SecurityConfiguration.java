@@ -53,8 +53,7 @@ public class SecurityConfiguration {
 
                 // rutas para el checking account
 
-                .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ACCOUNT_HOLDER")
+                .requestMatchers(HttpMethod.POST, "/checking-accounts/*").hasRole("ACCOUNT_HOLDER")
 
                 // rutas para el credit card
 
