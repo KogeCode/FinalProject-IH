@@ -75,5 +75,14 @@ public class AdminController {
     }
 
     //Metodo para modificar el balance de una cuenta
-
+    @PatchMapping("/balance-add/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void modifyAddBalance (@PathVariable Long id, @RequestParam BigDecimal amount){
+        accountService.modifyAddBalance(id,amount);
+    }
+    @PatchMapping("/balance-substract/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void modifySubstractBalance (@PathVariable Long id, @RequestParam BigDecimal amount){
+        accountService.modifySubstractBalance(id,amount);
+    }
 }

@@ -114,10 +114,14 @@ public class SavingAccount extends Account {
         this.status = status;
     }
 
+    //Método para aplicar el applyInterest cada vez que checkeamos el balance de la cuenta, si ha pasado un año desde que
+    //se aplicó el interés se volverá a aplicar
     public void applyInterest() {
+
         if (Period.between(lastApplyInterest, LocalDate.now()).getYears() > 1) {
-            super.setBalance(super.getBalance().add(super.getBalance().multiply(BigDecimal.valueOf(interest/12))
+            super.setBalance(super.getBalance().add(super.getBalance().multiply(BigDecimal.valueOf(interest))
                     .multiply(BigDecimal.valueOf((Period.between(lastApplyInterest, LocalDate.now()).getYears())))));
+
             //Actualizamos el lastInterest a fecha actual sin perder los años
             lastApplyInterest.plusYears(Period.between(lastApplyInterest, LocalDate.now()).getYears());
         }

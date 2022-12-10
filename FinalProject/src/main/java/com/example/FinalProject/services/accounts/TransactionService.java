@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.math.BigDecimal;
 
 @Service
-public class TransferService {
+public class TransactionService {
 
     @Autowired
     private AccountRepository accountRepository;

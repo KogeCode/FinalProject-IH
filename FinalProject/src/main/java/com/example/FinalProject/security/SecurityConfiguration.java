@@ -52,6 +52,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.PUT, "/transaction/receive/account-id/{accountId}/money/{money}").hasRole("THIRD_PARTY")
 
                 // rutas para el checking account
+
                 .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ACCOUNT_HOLDER")
 
@@ -68,6 +69,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST, "/student-accounts/add").hasRole("ACCOUNT_HOLDER")
 
                 .anyRequest().permitAll();
+
         httpSecurity.csrf().disable();
 
         return httpSecurity.build();

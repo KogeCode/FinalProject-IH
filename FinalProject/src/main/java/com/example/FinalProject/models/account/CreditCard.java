@@ -80,9 +80,12 @@ public class CreditCard extends Account {
 
 
     }
+
+    //Método por el cual se aplica el interés a la CreditCard de forma mensual cada vez que se chequea el balance de la CreditCard y se comprueba que ha pasado un mes desde que se aplicó por última vez el interés, dicha aplicación se efectúa de tal forma:  interés anual = 12%  => se aplica un 1% cada mes  (12% interés / 12 meses = 1%/mes)
+
     public void applyInterestCreditCard() {
         if (Period.between(lastApplyInterest, LocalDate.now()).getMonths() > 1) {
-            super.setBalance(super.getBalance().add(super.getBalance().multiply(BigDecimal.valueOf(interestRate))
+            super.setBalance(super.getBalance().add(super.getBalance().multiply(BigDecimal.valueOf(interestRate/12))
                     .multiply(BigDecimal.valueOf((Period.between(lastApplyInterest, LocalDate.now()).getMonths())))));
             //Actualizamos el lastInterest a fecha actual sin perder los años
             lastApplyInterest.plusMonths(Period.between(lastApplyInterest, LocalDate.now()).getMonths());

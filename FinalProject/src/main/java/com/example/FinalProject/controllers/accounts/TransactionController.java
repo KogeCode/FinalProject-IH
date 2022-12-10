@@ -1,6 +1,6 @@
 package com.example.FinalProject.controllers.accounts;
 
-import com.example.FinalProject.services.accounts.TransferService;
+import com.example.FinalProject.services.accounts.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,20 +11,20 @@ import java.math.BigDecimal;
 public class TransactionController {
 
     @Autowired
-    private TransferService transferService;
+    private TransactionService transactionService;
 
     @PutMapping("/send/account-id/{accountId}/money/{money}/hashkey/{hashKey}")
     public void doTransactionSendMoney (@PathVariable("accountId") Long accountId,
                                         @PathVariable("money") BigDecimal money,
                                         @RequestHeader("hashKey") String hashKey) {
-        transferService.doTransactionSendMoney(accountId, money,hashKey);
+        transactionService.doTransactionSendMoney(accountId, money,hashKey);
     }
 
     @PutMapping("/receive/account-id/{accountId}/money/{money}")
     public void doTransactionReceiveMoney (@PathVariable("accountId") Long accountId,
                                         @PathVariable("money") BigDecimal money,
                                         @RequestHeader("hashKey") String hashKey) {
-        transferService.doTransactionReceiveMoney(accountId, money,hashKey);
+        transactionService.doTransactionReceiveMoney(accountId, money,hashKey);
     }
 
     @PutMapping("/receive/account-id/{accountId}/account-destination/{accountDestination}/money/{money}")
@@ -32,7 +32,7 @@ public class TransactionController {
                                            @PathVariable("accountDestination") Long accountDestination,
                                            @PathVariable("money") BigDecimal money,
                                            @RequestHeader("hashKey") String hashKey) {
-        transferService.doTransactionAccountHolder(accountId, accountDestination, money,hashKey);
+        transactionService.doTransactionAccountHolder(accountId, accountDestination, money,hashKey);
     }
 
 }
