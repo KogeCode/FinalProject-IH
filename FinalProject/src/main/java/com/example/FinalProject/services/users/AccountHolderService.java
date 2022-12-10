@@ -59,15 +59,6 @@ public class AccountHolderService {
         return accountHolderRepository.save(accountHolder);
     }
 
-    public void deleteAccountHolder(Long id) {
-
-        AccountHolder accountHolder = accountHolderRepository.findById(id).orElseThrow(
-
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "El ID del AccountHolder no está registrado en la base de datos"));
-
-        accountHolderRepository.deleteById(accountHolder.getUserId());
-    }
-
     public BigDecimal getBalanceAccountHolder(Long id, Long idAccount) {
 
         //verificamos que el accountHolder Id existe

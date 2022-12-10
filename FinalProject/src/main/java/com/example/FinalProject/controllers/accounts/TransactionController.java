@@ -13,23 +13,23 @@ public class TransactionController {
     @Autowired
     private TransferService transferService;
 
-    @PutMapping("/send/accountId/{accountId}/money/{money}/hashKey/{hashKey}")
+    @PutMapping("/send/account-id/{accountId}/money/{money}/hashkey/{hashKey}")
     public void doTransactionSendMoney (@PathVariable("accountId") Long accountId,
                                         @PathVariable("money") BigDecimal money,
                                         @RequestHeader("hashKey") String hashKey) {
         transferService.doTransactionSendMoney(accountId, money,hashKey);
     }
 
-    @PutMapping("/Receive/accountId/{accountId}/money/{money}")
+    @PutMapping("/receive/account-id/{accountId}/money/{money}")
     public void doTransactionReceiveMoney (@PathVariable("accountId") Long accountId,
                                         @PathVariable("money") BigDecimal money,
-                                           @RequestHeader("hashKey") String hashKey) {
+                                        @RequestHeader("hashKey") String hashKey) {
         transferService.doTransactionReceiveMoney(accountId, money,hashKey);
     }
 
-    @PutMapping("/Receive/accountId/{accountId}/accountDestination/{accountDestination}/money/{money}")
+    @PutMapping("/receive/account-id/{accountId}/account-destination/{accountDestination}/money/{money}")
     public void doTransactionAccountHolder (@PathVariable("accountId") Long accountId,
-                                                        @PathVariable("accountDestination") Long accountDestination,
+                                           @PathVariable("accountDestination") Long accountDestination,
                                            @PathVariable("money") BigDecimal money,
                                            @RequestHeader("hashKey") String hashKey) {
         transferService.doTransactionAccountHolder(accountId, accountDestination, money,hashKey);

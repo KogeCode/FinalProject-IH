@@ -35,11 +35,8 @@ public class AccountHolderController {
     public AccountHolder updateAddress (@PathVariable Long id, @RequestBody Address address){
         return accountHolderService.updateAddress (id,address);
     }
-    @DeleteMapping("/delete/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteAccountHolder (@PathVariable Long id){
-        accountHolderService.deleteAccountHolder(id);
-    }
+
+
     @GetMapping("/get-balance/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public BigDecimal getBalanceAccountHolder(@PathVariable Long id, @RequestParam Long idAccount){

@@ -21,25 +21,19 @@ public class CheckingService {
     @Autowired
     AccountRepository accountRepository;
     @Autowired
-   StudentCheckingRepository studentCheckingRepository;
+    StudentCheckingRepository studentCheckingRepository;
 
     public Account addNewChecking(Checking checking) {
-       if(Period.between(checking.getPrimaryOwner().getDateOfBirth(), LocalDate.now()).getYears()<24){
+        if (Period.between(checking.getPrimaryOwner().getDateOfBirth(), LocalDate.now()).getYears() < 24) {
 
-           StudentChecking studentChecking = new StudentChecking(checking.getBalance(), checking.getPrimaryOwner(), checking.getSecundaryOwner(), checking.getSecretKey(), checking.getCreationDate(), checking.getStatus());
-           return studentCheckingRepository.save(studentChecking);
-       }else{
-           return  checkingRepository.save(checking);
-       }
+            StudentChecking studentChecking = new StudentChecking(checking.getBalance(), checking.getPrimaryOwner(), checking.getSecundaryOwner(), checking.getSecretKey(), checking.getCreationDate(), checking.getStatus());
+            return studentCheckingRepository.save(studentChecking);
+        } else {
+            return checkingRepository.save(checking);
+        }
 
     }
 
-
-    public void  deleteChecking(Long id) {
-        Checking checking = checkingRepository.findById(id).orElseThrow(
-                ()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "El ID del AccountHolder no está registrado en la base de datos"));
-      checkingRepository.deleteById(checking.getAccountId());
-    }
 }
 
 

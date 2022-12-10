@@ -16,7 +16,9 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfiguration {
 
     @Bean
-    PasswordEncoder passwordEncoder() {return new BCryptPasswordEncoder();}
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConf) throws Exception {
@@ -28,26 +30,42 @@ public class SecurityConfiguration {
         httpSecurity.httpBasic();
 
         httpSecurity.authorizeHttpRequests()
-                .requestMatchers(HttpMethod.POST, "/create-accountHolder").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/account-holder/add").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/student-accounts/add").hasRole("")
-                .requestMatchers(HttpMethod.POST, "/saving-accounts/add").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/creditcard-accounts/add").hasRole("ADMIN")
 
+                //rutas a las que solo el admin tiene acceso
 
-                .requestMatchers(HttpMethod.DELETE, "/thirdparty-account/delete").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE, "/account-holder/delete").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/account-admin/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.GET, "/account-admin/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PATCH, "/account-admin/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/account-admin/**").hasRole("ADMIN")
 
+                // rutas a las que solo el Account Holder puede acceder
+
+                .requestMatchers(HttpMethod.POST, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
                 .requestMatchers(HttpMethod.GET, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
-                .requestMatchers(HttpMethod.PUT, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
                 .requestMatchers(HttpMethod.PATCH, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
-                .requestMatchers(HttpMethod.DELETE, "/account-holder/**").hasRole("ACCOUNT_HOLDER")
-                .requestMatchers(HttpMethod.PUT, "/Receive/**").hasRole("ACCOUNT_HOLDER")
-                //Ver como poner varios roles a un endpoint.
+                .requestMatchers(HttpMethod.PUT, "/transaction/receive/account-id/{accountId}/account-destination/{accountDestination}/money/{money}").hasRole("ACCOUNT_HOLDER")
 
-                .requestMatchers(HttpMethod.GET, "/account-admin**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT, "/account-admin**").hasRole("ADMIN")
+                // rutas a las que solo el third party puede acceder
+
+                .requestMatchers(HttpMethod.POST, "/thirdparty-account/**").hasRole("THIRD_PARTY")
+                .requestMatchers(HttpMethod.PUT, "/transaction/send/account-id/{accountId}/money/{money}/hashkey/{hashKey}**").hasRole("THIRD_PARTY")
+                .requestMatchers(HttpMethod.PUT, "/transaction/receive/account-id/{accountId}/money/{money}").hasRole("THIRD_PARTY")
+
+                // rutas para el checking account
+                .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/checking-accounts/add").hasRole("ACCOUNT_HOLDER")
+
+                // rutas para el credit card
+
+                .requestMatchers(HttpMethod.POST, "/creditcard-accounts/add").hasRole("ACCOUNT_HOLDER")
+
+                // rutas para el saving account
+
+                .requestMatchers(HttpMethod.POST, "/saving-accounts/add").hasRole("ACCOUNT_HOLDER")
+
+                // rutas para el student checking
+
+                .requestMatchers(HttpMethod.POST, "/student-accounts/add").hasRole("ACCOUNT_HOLDER")
 
                 .anyRequest().permitAll();
         httpSecurity.csrf().disable();

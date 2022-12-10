@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("student-accounts")
+@RequestMapping("/student-accounts")
 public class StudentCheckingController {
     @Autowired
     StudentCheckingService studentCheckingService;

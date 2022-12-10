@@ -19,9 +19,4 @@ public class CheckingController {
         return checkingService.addNewChecking(checking);
     }
 
-    @DeleteMapping("/delete/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteChecking (@PathVariable Long id){
-        checkingService.deleteChecking(id);
-    }
 }
