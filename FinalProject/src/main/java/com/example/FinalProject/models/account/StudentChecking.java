@@ -21,18 +21,16 @@ public class StudentChecking extends Account{
     public StudentChecking() {
     }
 
-    public StudentChecking(BigDecimal balance, AccountHolder primaryOwner, String secretKey, LocalDate creationDate, Status status) {
+    public StudentChecking(BigDecimal balance, AccountHolder primaryOwner, String secretKey) {
         super(balance, primaryOwner);
         this.secretKey = secretKey;
-        this.creationDate = creationDate;
-        this.status = status;
+
     }
 
-    public StudentChecking(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner, String secretKey, LocalDate creationDate, Status status) {
+    public StudentChecking(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner, String secretKey) {
         super(balance, primaryOwner, secundaryOwner);
         this.secretKey = secretKey;
-        this.creationDate = creationDate;
-        this.status = status;
+
     }
 
     public String getSecretKey() {

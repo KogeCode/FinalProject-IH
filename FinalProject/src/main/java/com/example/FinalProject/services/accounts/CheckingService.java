@@ -26,7 +26,7 @@ public class CheckingService {
     public Account addNewChecking(Checking checking) {
         if (Period.between(checking.getPrimaryOwner().getDateOfBirth(), LocalDate.now()).getYears() < 24) {
 
-            StudentChecking studentChecking = new StudentChecking(checking.getBalance(), checking.getPrimaryOwner(), checking.getSecundaryOwner(), checking.getSecretKey(), checking.getCreationDate(), checking.getStatus());
+            StudentChecking studentChecking = new StudentChecking(checking.getBalance(), checking.getPrimaryOwner(), checking.getSecundaryOwner(), checking.getSecretKey());
             return studentCheckingRepository.save(studentChecking);
         } else {
             return checkingRepository.save(checking);
