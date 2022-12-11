@@ -11,18 +11,12 @@ public class Admin extends User{
     public Admin() {
     }
 
-    public Admin(String name, String password, String nameAdmin) {
+    public Admin(String name, String password) {
         super(name, password);
-        this.nameAdmin=nameAdmin;
+
     }
 
-    public String getNameAdmin() {
-        return nameAdmin;
-    }
 
-    public void setNameAdmin(String nameAdmin) {
-        this.nameAdmin = nameAdmin;
-    }
 }
 
 

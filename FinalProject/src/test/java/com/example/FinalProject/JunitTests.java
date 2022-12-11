@@ -56,7 +56,7 @@ class JunitTests {
 
 		accountHolder2 =accountHolderRepository.save(new AccountHolder("Raul Guapo", "1234", LocalDate.of(1994,12,28), new Address("C/Maricon no lo oculto",8100,"Mollet del Vallès","España")));
 
-		admin1= adminRepository.save (new Admin("Cristian","12345","Koge"));
+		admin1= adminRepository.save (new Admin("Cristian","12345"));
 
 		checking1 = checkingRepository.save(new Checking(BigDecimal.valueOf(1000.00),accountHolder1, "Srritor",BigDecimal.valueOf(260)));
 		checking2 = checkingRepository.save(new Checking(BigDecimal.valueOf(1000.00),accountHolder2, "4444",BigDecimal.valueOf(260)));

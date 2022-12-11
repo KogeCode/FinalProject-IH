@@ -59,7 +59,7 @@ public class FinalProjectApplication implements CommandLineRunner {
 
 		ThirdParty user = thirdPartyRepository.save(new ThirdParty("BBVA",passwordEncoder.encode("123456"),"456"));
 		AccountHolder accountHolder= accountHolderRepository.save(new AccountHolder( "Cristian",passwordEncoder.encode("abcd"), LocalDate.of(1994,12,1), new Address("Jaume Coll",8100,"Mollet","España")));
-		Admin admin = adminRepository.save (new Admin("Kiko",passwordEncoder.encode("11456"),"kikoman"));
+		Admin admin = adminRepository.save (new Admin("Kiko",passwordEncoder.encode("11456")));
 
 		Role role = new Role("THIRD_PARTY",user);
 		roleRepository.save(role);
