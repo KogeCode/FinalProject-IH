@@ -48,7 +48,7 @@ public class SecurityConfiguration {
                 // rutas a las que solo el third party puede acceder
 
                 .requestMatchers(HttpMethod.POST, "/thirdparty-account/**").hasRole("THIRD_PARTY")
-                .requestMatchers(HttpMethod.PUT, "/transaction/send/account-id/{accountId}/money/{money}/hashkey/{hashKey}**").hasRole("THIRD_PARTY")
+                .requestMatchers(HttpMethod.PUT, "/transaction/send/account-id/{accountId}/money/{money}/hashkey/{hashKey}").hasRole("THIRD_PARTY")
                 .requestMatchers(HttpMethod.PUT, "/transaction/receive/account-id/{accountId}/money/{money}").hasRole("THIRD_PARTY")
 
                 // rutas para el checking account

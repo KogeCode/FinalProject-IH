@@ -28,19 +28,16 @@ public class Checking extends Account {
     public Checking() {
     }
 
-    public Checking(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance) {
+    public Checking(BigDecimal balance, AccountHolder primaryOwner, AccountHolder secundaryOwner, String secretKey, BigDecimal minimumBalance) {
         super(balance, primaryOwner, secundaryOwner);
+
         this.secretKey = secretKey;
-        this.creationDate = creationDate;
-        this.status = status;
         this.minimumBalance = minimumBalance;
     }
 
-    public Checking(BigDecimal balance, AccountHolder primaryOwner, String secretKey, LocalDate creationDate, Status status, BigDecimal minimumBalance) {
+    public Checking(BigDecimal balance, AccountHolder primaryOwner, String secretKey, BigDecimal minimumBalance) {
         super(balance, primaryOwner);
         this.secretKey = secretKey;
-        this.creationDate = creationDate;
-        this.status = status;
         this.minimumBalance = minimumBalance;
     }
 
