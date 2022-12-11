@@ -44,3 +44,12 @@ Son los controladores donde definiremos los *end-points* de nuestras rutas para 
 [![Image from Gyazo](https://i.gyazo.com/e65ded139bd5ae7a9de4134a6a3332c2.png)](https://gyazo.com/e65ded139bd5ae7a9de4134a6a3332c2)
 
 Son los repositorios (interfaces) que usaremos para obtener ciertas funcionalidades como por ejemplo encontrar una SavingAccount por su ID.
+
+### Package Services
+[![Image from Gyazo](https://i.gyazo.com/e55f472a2751778bee0e081661fb8fa1.png)](https://gyazo.com/e55f472a2751778bee0e081661fb8fa1)
+
+En estos archivos vamos a encontrar la lógica que será usada por los controladores cuando se usen.
+
+## ANTES DE USAR
+[![Image from Gyazo](https://i.gyazo.com/ef226892c43458ec6c8696307da72a84.png)](https://gyazo.com/ef226892c43458ec6c8696307da72a84)
+Será de suma importancia tener en MySQL un schema creado con el nombre *finalproject* y modificar los apartados de usuario y contraseña para que la API pueda conectarse a nuestra base de datos.
