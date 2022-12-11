@@ -52,4 +52,5 @@ En estos archivos vamos a encontrar la lógica que será usada por los controlad
 
 ## ANTES DE USAR
 [![Image from Gyazo](https://i.gyazo.com/ef226892c43458ec6c8696307da72a84.png)](https://gyazo.com/ef226892c43458ec6c8696307da72a84)
+
 Será de suma importancia tener en MySQL un schema creado con el nombre *finalproject* y modificar los apartados de usuario y contraseña para que la API pueda conectarse a nuestra base de datos.
